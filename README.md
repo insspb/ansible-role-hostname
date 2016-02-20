@@ -1,12 +1,13 @@
 Ansible Role: Hostname
 =========
-- Master branch: [![Build Status](https://travis-ci.org/insspb/ansible-role-hostname.svg?branch=master)](https://travis-ci.org/insspb/ansible-role-hostname)
-- Developer branch: [![Build Status](https://travis-ci.org/insspb/ansible-role-hostname.svg?branch=develop)](https://travis-ci.org/insspb/ansible-role-hostname)
+| Master branch | Developer branch | 
+|:---:|:---:|
+| Master branch: [![Build Status](https://travis-ci.org/insspb/ansible-role-hostname.svg?branch=master)](https://travis-ci.org/insspb/ansible-role-hostname) | Developer branch: [![Build Status](https://travis-ci.org/insspb/ansible-role-hostname.svg?branch=develop)](https://travis-ci.org/insspb/ansible-role-hostname) |
 
 Description
 ------------
 
-This role will set hostname on any host, input variable can be placed in inventory.
+This role will set hostname on any host with the name of host inventory name.  Updates hosts file too.
 
 Requirements
 ------------
@@ -25,7 +26,12 @@ Independent role.
 
 Example Playbook
 ----------------
-
+```yaml
+- hosts: localhost
+  roles:
+    - { role: insspb.hostname }
+```
+	
 Development information
 ----------------
 This role is developed with community help. 

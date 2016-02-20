@@ -1,6 +1,6 @@
 galaxy_info:
   author: Andrey Shpak
-  description: This role will set hostname on any host, input variable can be placed in inventory.
+  description: This role will set hostname on any host with the name of host inventory name. Updates hosts file too.
   company: 
   
   # If the issue tracker for your role is not on github, uncomment the
@@ -104,28 +104,7 @@ galaxy_info:
   #  - 9.3
   - name: Ubuntu
     versions:
-  #  - all
-  #  - lucid
-  #  - maverick
-  #  - natty
-  #  - oneiric
-  #  - precise
-  #  - quantal
-  #  - raring
-  #  - saucy
-     - trusty
-  #  - utopic
-  #  - vivid
-  #  - wily
-  #- name: SLES
-  #  versions:
-  #  - all
-  #  - 10SP3
-  #  - 10SP4
-  #  - 11
-  #  - 11SP1
-  #  - 11SP2
-  #  - 11SP3
+     - all
   #- name: GenericLinux
   #  versions:
   #  - all
@@ -141,6 +120,7 @@ galaxy_info:
   
   galaxy_tags: 
      - hostname
+     - setting
      - settings
      - net
      - system
