@@ -12,12 +12,14 @@ This role will set hostname on any host with the name of host inventory name.  U
 Requirements
 ------------
 
-No requiments yet.
+No requiments.
+
+But CentOs 5 requires python-simplejson package installed for general Ansible work. 
 
 Role Variables
 --------------
 
-Nothing to describe yet. Please be patient.
+Role use ansible_hostname from inventory file.
 
 Dependencies
 ------------
