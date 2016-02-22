@@ -19,7 +19,8 @@ But CentOs 5 requires python-simplejson package installed for general Ansible wo
 Role Variables
 --------------
 
-Role use ansible_hostname from inventory file.
+Role use **inventory_hostname** from inventory file to get host hostname.
+You can change hosts file location with **hostname_host_file_location** variable. 
 
 Dependencies
 ------------
