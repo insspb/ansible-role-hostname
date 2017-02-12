@@ -1,17 +1,22 @@
 ---
 - name: Hostname | Setting up hostname
-  hostname: name='{{ inventory_hostname }}'
+  become: True
+  hostname:
+    name: "{{ hostname_fqdn_full }}"
 
-- name: Hostname | Update the IPv4 hostname (pt. 1) - (/etc/hosts)
+- name: Hostname | Update the IPv4 part of hosts file
+  become: True
   lineinfile:
-    dest: "{{ hostname_host_file_location }}"
+    dest: "{{ hostname_hosts_file_location }}"
     regexp: "^127.0.0.1"
-    line: "127.0.0.1{{'\t'}}{{inventory_hostname}}{% if inventory_hostname != inventory_hostname_short %}{{'\t'}}{{inventory_hostname_short}}{% endif %}{{'\t'}}localhost"
+    line: "127.0.0.1{{ '\t' }}{{ hostname_fqdn_full }}{% if hostname_fqdn_full != hostname_fqdn_short %}{{ '\t' }}{{ hostname_fqdn_short }}{{ '\t' }}{% endif %}localhost localhost.localdomain localhost4 localhost4.localdomain4"
     state: present
+    backup: "{{ hostname_hosts_backup }}"
 
-- name: Hostname | Update the IPv6 hostname (pt. 2) - (/etc/hosts)
+- name: Hostname | Update the IPv6 part of hosts file
+  become: True
   lineinfile:
-    dest: "{{ hostname_host_file_location }}"
+    dest: "{{ hostname_hosts_file_location }}"
     regexp: "^::1"
-    line: "::1{{'\t\t'}}{{inventory_hostname}}{% if inventory_hostname != inventory_hostname_short %}{{'\t'}}{{inventory_hostname_short}}{% endif %}{{'\t'}}localhost ip6-localhost ip6-loopback"
+    line: "::1{{ '\t\t' }}{{ hostname_fqdn_full }}{% if hostname_fqdn_full != hostname_fqdn_short %}{{ '\t' }}{{ hostname_fqdn_short }}{% endif %}{{ '\t' }}localhost localhost.localdomain localhost6 localhost4.localdomain6 ip6-localhost ip6-loopback"
     state: present
