@@ -6,10 +6,10 @@ Ansible Role: Hostname
 
 Versions:
 ------------
-##### v3.0: 
+##### v3.0: Non root user support
 - Non root user support added. (become)
-- Added some missed default host names from **CentOS 6/7**
 - Now it is possible to set system hostname different from **inventory_hostname**
+- Added some missed default host names from **CentOS 6/7**
 - Playbook syntax cleanup
 - Meta file update
 - Manual tests done on:
