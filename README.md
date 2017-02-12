@@ -7,20 +7,25 @@ Ansible Role: Hostname
 Description
 ------------
 
-This role will set hostname on any host with the name of host inventory name.  Updates hosts file too.
+This role will set hostname on any target host. By default hostname is same as inventory_hostname, but can be set as different by using vars. Updates hosts file too.
 
 Requirements
 ------------
 
 No requiments.
 
-But CentOs 5 requires python-simplejson package installed for general Ansible work. 
+- CentOs 5 requires **python-simplejson** package installed for general Ansible work. 
+- Ubuntu 16.04 has no **python** package installed by default. It is reuired for general Ansible to work. 
 
 Role Variables
 --------------
 
-Role use **inventory_hostname** from inventory file to get host hostname.
-You can change hosts file location with **hostname_host_file_location** variable. 
+| Variable                     | Default                  | Explanation  |
+| -----------------------------|--------------------------| -----|
+| hostname_hosts_file_location | "/etc/hosts"             | Hosts file location. |
+| hostname_hosts_backup        | False                    | You can make backup of hosts file before changes will be made. |
+| hostname_fqdn_full           | inventory_hostname | By default this role use **inventory_hostname** from inventory file to get host hostname, but you can set **hostname_fqdn_full** and **hostname_fqdn_short** to change this behavior.|
+| hostname_fqdn_short          | inventory_hostname_short | |
 
 Dependencies
 ------------
